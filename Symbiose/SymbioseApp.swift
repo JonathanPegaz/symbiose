@@ -9,10 +9,10 @@ import SwiftUI
 
 @main
 struct SymbioseApp: App {
-    @StateObject var bleInterface = BLEObservable()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(bleInterface)
+            ContentView()
         }
     }
 }
