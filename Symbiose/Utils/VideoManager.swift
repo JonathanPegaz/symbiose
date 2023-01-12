@@ -63,9 +63,8 @@ class VideoManager: ObservableObject {
             case 4:
                 print("step4")
                 self.step = 4
-                if(self.boundaryTimeObserver != nil) {
-                    self.player.removeTimeObserver(self.boundaryTimeObserver)
-                }
+                self.loopDelay = 0
+                self.anchorDelay = 0
 
             default:
                 print("Cette étape n'existe pas")

@@ -74,6 +74,7 @@
 		ABCECF852955EE9900D2681D /* BLEManagerMac1.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCECF832955EE9900D2681D /* BLEManagerMac1.swift */; };
 		ABD381B4295E20450034835A /* CustomVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD381B3295E20450034835A /* CustomVideoPlayer.swift */; };
 		ABD381B9295E49C60034835A /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD381B8295E49C60034835A /* VideoManager.swift */; };
+		EDA2F51F29709FA70075D6BE /* DebugApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA2F51E29709FA70075D6BE /* DebugApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,7 @@
 		ABCECF832955EE9900D2681D /* BLEManagerMac1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManagerMac1.swift; sourceTree = "<group>"; };
 		ABD381B3295E20450034835A /* CustomVideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomVideoPlayer.swift; sourceTree = "<group>"; };
 		ABD381B8295E49C60034835A /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
+		EDA2F51E29709FA70075D6BE /* DebugApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 				ABAE059929535311002CFA2C /* ContentView.swift */,
 				ABAE059B29535312002CFA2C /* Assets.xcassets */,
 				ABAE059D29535312002CFA2C /* Preview Content */,
+				EDA2F51E29709FA70075D6BE /* DebugApp.swift */,
 			);
 			path = Symbiose;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				ABAE0616295353CE002CFA2C /* Color+Utils.swift in Sources */,
 				ABAE061C295353CE002CFA2C /* ShouldActionCompleteResponse.swift in Sources */,
 				ABAE0601295353CE002CFA2C /* Matrix.swift in Sources */,
+				EDA2F51F29709FA70075D6BE /* DebugApp.swift in Sources */,
 				AB7FDEF9295A6FA10091A12C /* BLEObservableMac1.swift in Sources */,
 				ABAE0612295353CE002CFA2C /* MiniToy.swift in Sources */,
 				ABAE060B295353CE002CFA2C /* BB8Toy.swift in Sources */,

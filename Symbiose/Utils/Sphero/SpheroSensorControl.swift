@@ -25,7 +25,7 @@ class SpheroSensorControl: ObservableObject{
     @Published var valueSphero: Float = 0.0
     
     @Published var orientation: Float = 0.0
-    @Published var acc: Float = 0.0
+    @Published var isShaking: Bool = false
 
     
     func load() {
@@ -49,15 +49,6 @@ class SpheroSensorControl: ObservableObject{
 //                    print("Orientation : Roll:\(orientation.roll!), pitch:\(orientation.pitch!), yaw:\(orientation.yaw!)")
                         self.orientation = Float(orientation.roll!)
                     }
-                    
-                    if let gyro = data.gyro?.rotationRate {
-//                        print("x : \(gyro.x!)")
-//                        print("y : \(gyro.y!)")
-//                        print("z : \(gyro.z!)")
-//                        self.gyr = Float(abs(gyro.x!) + abs(gyro.y!) + abs(gyro.z!))
-//                        self.gyr = Float(abs(gyro.x!))
-//                        print(Float(abs(gyro.x) + abs(gyro.y) + abs(gyro.z)))
-                    }
  
                     if let acceleration = data.accelerometer?.filteredAcceleration {
                         // PAS BIEN!!!
@@ -67,7 +58,13 @@ class SpheroSensorControl: ObservableObject{
 
                         self.dataToDisplay = [acceleration.x!, acceleration.y!, acceleration.z!]
 //                        print(self.dataToDisplay)
-                        self.acc = Float(abs(acceleration.x!) + abs(acceleration.y!) + abs(acceleration.z!))
+                        var acc = Float(abs(acceleration.x!) + abs(acceleration.y!) + abs(acceleration.z!))
+                        
+                        if (acc > 3) {
+                            self.isShaking = true
+                        } else {
+                            self.isShaking = false
+                        }
                         
                         
                         

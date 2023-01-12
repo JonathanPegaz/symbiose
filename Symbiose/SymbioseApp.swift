@@ -13,6 +13,7 @@ struct SymbioseApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            // DebugApp()
         }
     }
 }

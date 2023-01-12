@@ -174,7 +174,7 @@ extension BLEManagerMac3: CBCentralManagerDelegate {
 //        if characteristic == getCharForUUID(readCityCBUUID, forperipheral: peripheral){
 //            cityMessageReceivedCallback?(characteristic.value)
 //        }
-        if characteristic == getCharForUUID(readCBUUID, forperipheral: peripheral){
+        if characteristic == getCharForUUID(writeCBUUID, forperipheral: peripheral){
             messageReceivedCallback?(characteristic.value)
         }
         
