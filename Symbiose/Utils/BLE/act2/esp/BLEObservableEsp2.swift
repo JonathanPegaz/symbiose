@@ -8,7 +8,7 @@
 import Foundation
 import CoreBluetooth
 
-class BLEObservableAct2:ObservableObject{
+class BLEObservableEsp2:ObservableObject{
     
     enum ConnectionState {
         case disconnected,connecting,discovering,ready

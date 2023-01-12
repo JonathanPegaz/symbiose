@@ -2,15 +2,16 @@ import Foundation
 import SwiftUI
 import CoreBluetooth
 
-class BLEManagerMac1: NSObject {
-    static let instance = BLEManagerMac1()
+class BLEManagerEsp2: NSObject {
+    static let instance = BLEManagerEsp2()
     
     var isBLEEnabled = false
     var isScanning = false
-    let authCBUUID = CBUUID(string: "42381107-FF7F-40D8-AA2A-115A76449099")
-    let writeCBUUID = CBUUID(string: "4797327B-7044-4AD7-A01E-9F3AEA2FAF17")
-    let readCBUUID = CBUUID(string: "19C73BE7-7CE7-4A80-B135-AE0EA643E646")
     let readCityCBUUID = CBUUID(string: "558759EE-0F86-49E7-A38A-DBE48CF8B237")
+    
+    let authCBUUID = CBUUID(string: "B85C752C-80CD-473C-BFE4-1756E1B50275")
+    let writeCBUUID = CBUUID(string: "35DE80EA-FFC1-4947-B1A1-594AE803CA6A")
+    let readCBUUID = CBUUID(string: "7B095DDB-D145-4783-8A5D-D5F06D548476")
     var centralManager: CBCentralManager?
     var connectedPeripherals = [CBPeripheral]()
     var readyPeripherals = [CBPeripheral]()
@@ -37,7 +38,7 @@ class BLEManagerMac1: NSObject {
     func scan(callback: @escaping (CBPeripheral,String) -> ()) {
         isScanning = true
         scanCallback = callback
-        centralManager?.scanForPeripherals(withServices: nil, options: nil)
+        centralManager?.scanForPeripherals(withServices: [], options: [CBCentralManagerScanOptionAllowDuplicatesKey:NSNumber(value: false)])
     }
     
     func stopScan() {
@@ -93,7 +94,9 @@ class BLEManagerMac1: NSObject {
     func sendData(data: Data, callback: @escaping (String?) -> ()) {
         sendDataCallback = callback
         for periph in readyPeripherals {
-            if let char = BLEManagerMac1.instance.getCharForUUID(writeCBUUID, forperipheral: periph) {
+            print(periph)
+            if let char = BLEManagerEsp2.instance.getCharForUUID(writeCBUUID, forperipheral: periph) {
+                
                 periph.writeValue(data, for: char, type: CBCharacteristicWriteType.withResponse)
             }
         }
@@ -103,7 +106,7 @@ class BLEManagerMac1: NSObject {
     func sendStopCityData(data: Data, callback: @escaping (String?) -> ()) {
         sendDataCallback = callback
         for periph in readyPeripherals {
-            if let char = BLEManagerMac1.instance.getCharForUUID(readCityCBUUID, forperipheral: periph) {
+            if let char = BLEManagerEsp2.instance.getCharForUUID(readCityCBUUID, forperipheral: periph) {
                 periph.writeValue(data, for: char, type: CBCharacteristicWriteType.withResponse)
             }
         }
@@ -112,7 +115,7 @@ class BLEManagerMac1: NSObject {
     func sendStopData(data: Data, callback: @escaping (String?) -> ()) {
         sendDataCallback = callback
         for periph in readyPeripherals {
-            if let char = BLEManagerMac1.instance.getCharForUUID(readCBUUID, forperipheral: periph) {
+            if let char = BLEManagerEsp2.instance.getCharForUUID(readCBUUID, forperipheral: periph) {
                 periph.writeValue(data, for: char, type: CBCharacteristicWriteType.withResponse)
             }
         }
@@ -120,7 +123,7 @@ class BLEManagerMac1: NSObject {
 
     func readData() {
         for periph in readyPeripherals {
-            if let char = BLEManagerMac1.instance.getCharForUUID(readCBUUID, forperipheral: periph) {
+            if let char = BLEManagerEsp2.instance.getCharForUUID(readCBUUID, forperipheral: periph) {
                 periph.readValue(for: char)
             }
         }
@@ -128,7 +131,7 @@ class BLEManagerMac1: NSObject {
 
 }
 
-extension BLEManagerMac1: CBPeripheralDelegate {
+extension BLEManagerEsp2: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         if let services = peripheral.services {
             for service in services {
@@ -153,7 +156,7 @@ extension BLEManagerMac1: CBPeripheralDelegate {
     }
 }
 
-extension BLEManagerMac1: CBCentralManagerDelegate {
+extension BLEManagerEsp2: CBCentralManagerDelegate {
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
             isBLEEnabled = true
@@ -181,11 +184,11 @@ extension BLEManagerMac1: CBCentralManagerDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        
         if characteristic == getCharForUUID(readCityCBUUID, forperipheral: peripheral){
             cityMessageReceivedCallback?(characteristic.value)
         }
-        if characteristic == getCharForUUID(writeCBUUID, forperipheral: peripheral){
-            
+        if characteristic == getCharForUUID(readCBUUID, forperipheral: peripheral){
             messageReceivedCallback?(characteristic.value)
         }
         
@@ -195,5 +198,4 @@ extension BLEManagerMac1: CBCentralManagerDelegate {
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         sendDataCallback?(peripheral.name)
     }
-    
 }

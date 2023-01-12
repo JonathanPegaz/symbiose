@@ -77,11 +77,6 @@ class BLEController: UIViewController,CBPeripheralManagerDelegate, ObservableObj
         
     }
     
-    func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService])
-    {
-        
-    }
-    
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveRead request: CBATTRequest) {
         
         messageLabel = "Data getting Read"
@@ -102,6 +97,8 @@ class BLEController: UIViewController,CBPeripheralManagerDelegate, ObservableObj
             if let string = String(bytes: value, encoding: .utf8) {
                 print(string)
                 data = string
+                let valueData = string.data(using: .utf8)
+                
             }
         }
     }
