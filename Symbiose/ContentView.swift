@@ -18,6 +18,7 @@ struct ContentView: View {
     
     @StateObject var BLEesp1:BLEObservableEsp1 = BLEObservableEsp1()
     @StateObject var BLEesp2:BLEObservableEsp2 = BLEObservableEsp2()
+    @StateObject var BLEesp2_3:BLEObservableEsp2_3 = BLEObservableEsp2_3()
     
     @StateObject var bleController : BLEController = BLEController()
 
@@ -29,6 +30,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             CustomVideoPlayer(player: videoManager.player)
+            
             Text(connectionStringble1)
             Text(connectionStringble2)
             Text(connectionStateSpheroLabel)
@@ -37,6 +39,12 @@ struct ContentView: View {
             }
             Button("fin act 1") {
                 BLEmac1.mac1value = "endact1"
+            }
+            Button("fin act 2") {
+                BLEesp2.esp2value = "endAct2"
+            }
+            Button("fin act 3") {
+                BLEmac3.mac3value = "endAct3"
             }
                 .onAppear(){
                     bleController.load()
@@ -50,29 +58,45 @@ struct ContentView: View {
             }
         }
         .onChange(of: spheroSensorController.acc, perform: { newValue in
-            print(newValue)
-        })
-        .onChange(of: videoManager.currentTime) { newValue in
-            if (newValue > 3 && BLEesp1.esp1Status != "running") {
-                print("running")
-                BLEesp1.sendString(str: "running")
-                BLEmac1.startScann()
+            if (newValue > 3) {
+                SharedToyBox.instance.bolt?.sensorControl.disable()
+                videoManager.changeStep(step: 1)
             }
-            
-            // act3
-        }
+        })
         .onChange(of: videoManager.step, perform: { newValue in
             switch newValue {
             case 1:
                 BLEesp1.startScann()
             case 2:
-                BLEesp2.startScann()
+                BLEesp2_3.startScann()
             case 3:
-                print("att")
+                print("step3")
+            case 4:
+                print("step4")
             default:
                 print("erreur mauvaise valeur")
             }
         })
+        .onChange(of: videoManager.currentTime) { newValue in
+            if (newValue > 4 && BLEesp1.esp1Status != "running") {
+                print("running")
+                BLEesp1.sendString(str: "running")
+                BLEmac1.startScann()
+            }
+            
+            if (newValue > 12 && BLEesp2_3.esp2_3Status != "runningAct2") {
+                print("runningAct2")
+                BLEesp2_3.sendString(str: "runningAct2")
+                BLEesp2.startScann()
+            }
+            
+            if (newValue > 19 && BLEesp2_3.esp2_3Status != "runningAct3") {
+                print("runningAct3")
+                BLEObservableMac3().startScann()
+                BLEesp2_3.sendString(str: "runningAct3")
+            }
+            
+        }
         .onChange(of: BLEmac1.connectedPeripheral) { newValue in
             if let p = newValue{
                 BLEmac1.sendString(str: "start")
@@ -96,9 +120,15 @@ struct ContentView: View {
                 videoManager.changeStep(step: 2)
             }
         })
+        .onChange(of: BLEesp2.esp2value) { newValue in
+            // end act 2
+            BLEesp2_3.sendString(str: newValue)
+            sleep(5)
+            videoManager.changeStep(step: 3)
+        }
         .onChange(of: BLEmac3.mac3value, perform: { newValue in
-            if (newValue == "endact3") {
-//                BLEesp1.sendString(str: "end")
+            if (newValue == "endAct3") {
+                BLEesp2_3.sendString(str: "endAct3")
                 sleep(5)
                 videoManager.changeStep(step: 4)
             }
@@ -113,26 +143,29 @@ struct ContentView: View {
         })
         .onChange(of: BLEesp2.connectedPeripheral) { newValue in
             if let p = newValue{
-                connectionStringble2 = p.name
+                connectionStringble1 = p.name
                 BLEesp2.listen { r in
                     print(r)
                 }
             }
         }
+        .onChange(of: BLEesp2_3.connectedPeripheral) { newValue in
+            if let p = newValue{
+                BLEesp2_3.sendString(str: "reset")
+                BLEesp2_3.listen { r in
+                    print(r)
+                }
+            }
+        }
         .onChange(of: BLEesp2.rfid1) { newValue in
-            SharedToyBox.instance.bolt!.rotateAim(90)
             SharedToyBox.instance.bolt!.drawMatrix(fillFrom: Pixel(x: 0, y: 0), to: Pixel(x: 7, y: 2), color: .red)
             SharedToyBox.instance.bolt!.rotateAim(180)
         }.onChange(of: BLEesp2.rfid2) { newValue in
-            SharedToyBox.instance.bolt!.rotateAim(90)
             SharedToyBox.instance.bolt!.drawMatrix(fillFrom: Pixel(x: 0, y: 3), to: Pixel(x: 7, y: 5), color: .blue)
             SharedToyBox.instance.bolt!.rotateAim(180)
         }.onChange(of: BLEesp2.rfid3) { newValue in
-            SharedToyBox.instance.bolt!.rotateAim(90)
             SharedToyBox.instance.bolt!.drawMatrix(fillFrom: Pixel(x: 0, y: 6), to: Pixel(x: 7, y: 7), color: .green)
             SharedToyBox.instance.bolt!.rotateAim(180)
-        }.onChange(of: BLEesp2.isActivated) { newValue in
-            videoManager.changeStep(step: 3)
         }
         .padding()
     }

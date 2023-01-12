@@ -23,18 +23,17 @@ class BLEObservableEsp2:ObservableObject{
     @Published var rfid2: Bool = false
     @Published var rfid3: Bool = false
     
-    @Published var isActivated: Bool = false
+    @Published var esp2value: String = ""
     
     init(){
-        _ = BLEManagerMac1.instance
+        _ = BLEManagerEsp2.instance
     }
     
     func startScann(){
-        BLEManagerMac1.instance.scan { p,s in
-            print(p)
+        BLEManagerEsp2.instance.scan { p,s in
             let periph = Periph(blePeriph: p,name: s)
             
-            if periph.name == "symbiose"{
+            if periph.name == "esp2"{
 //                if !self.periphList.contains(where: { per in
 //                    per.blePeriph == periph.blePeriph
 //                }) {
@@ -49,19 +48,19 @@ class BLEObservableEsp2:ObservableObject{
     }
     
     func stopScann(){
-        BLEManagerMac1.instance.stopScan()
+        BLEManagerEsp2.instance.stopScan()
     }
     
     func connectTo(p:Periph){
         connectionState = .connecting
-        BLEManagerMac1.instance.connectPeripheral(p.blePeriph) { cbPeriph in
+        BLEManagerEsp2.instance.connectPeripheral(p.blePeriph) { cbPeriph in
             self.connectionState = .discovering
-            BLEManagerMac1.instance.discoverPeripheral(cbPeriph) { cbPeriphh in
+            BLEManagerEsp2.instance.discoverPeripheral(cbPeriph) { cbPeriphh in
                 self.connectionState = .ready
                 self.connectedPeripheral = p
             }
         }
-        BLEManagerMac1.instance.didDisconnectPeripheral { cbPeriph in
+        BLEManagerEsp2.instance.didDisconnectPeripheral { cbPeriph in
             if self.connectedPeripheral?.blePeriph == cbPeriph{
                 self.connectionState = .disconnected
                 self.connectedPeripheral = nil
@@ -71,7 +70,7 @@ class BLEObservableEsp2:ObservableObject{
     
     func disconnectFrom(p:Periph){
         
-        BLEManagerMac1.instance.disconnectPeripheral(p.blePeriph) { cbPeriph in
+        BLEManagerEsp2.instance.disconnectPeripheral(p.blePeriph) { cbPeriph in
             if self.connectedPeripheral?.blePeriph == cbPeriph{
                 self.connectionState = .disconnected
                 self.connectedPeripheral = nil
@@ -84,7 +83,7 @@ class BLEObservableEsp2:ObservableObject{
         
         let dataFromString = str.data(using: .utf8)!
         
-        BLEManagerMac1.instance.sendData(data: dataFromString) { c in
+        BLEManagerEsp2.instance.sendData(data: dataFromString) { c in
             
         }
     }
@@ -94,18 +93,18 @@ class BLEObservableEsp2:ObservableObject{
         let data = Data(d)
         let dataFromString = String("Toto").data(using: .utf8)
         
-        BLEManagerMac1.instance.sendData(data: data) { c in
+        BLEManagerEsp2.instance.sendData(data: data) { c in
             
         }
     }
     
     func readData(){
-        BLEManagerMac1.instance.readData()
+        BLEManagerEsp2.instance.readData()
     }
     
     func listen(c:((String)->())){
         
-        BLEManagerMac1.instance.listenForMessages { data in
+        BLEManagerEsp2.instance.listenForMessages { data in
             
             if let d = data{
                 if let str = String(data: d, encoding: .utf8) {
@@ -122,7 +121,8 @@ class BLEObservableEsp2:ObservableObject{
                     }
                     
                     if (self.rfid1 && self.rfid2 && self.rfid3) {
-                        self.isActivated = true
+                        self.esp2value = "endAct2"
+                        print("endAct2")
                     }
                 }
             }

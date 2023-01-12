@@ -9,9 +9,9 @@ class BLEManagerEsp2: NSObject {
     var isScanning = false
     let readCityCBUUID = CBUUID(string: "558759EE-0F86-49E7-A38A-DBE48CF8B237")
     
-    let authCBUUID = CBUUID(string: "B85C752C-80CD-473C-BFE4-1756E1B50275")
-    let writeCBUUID = CBUUID(string: "35DE80EA-FFC1-4947-B1A1-594AE803CA6A")
-    let readCBUUID = CBUUID(string: "7B095DDB-D145-4783-8A5D-D5F06D548476")
+    let authCBUUID = CBUUID(string: "37331C2E-F79F-4A0F-88FE-85EEF1D47BA9")
+    let writeCBUUID = CBUUID(string: "A3BA2757-8B5D-44F3-8E0B-564B8D3396E2")
+    let readCBUUID = CBUUID(string: "43F6B7D8-81D5-4ADF-930C-8B7745FA3C9A")
     var centralManager: CBCentralManager?
     var connectedPeripherals = [CBPeripheral]()
     var readyPeripherals = [CBPeripheral]()
@@ -94,7 +94,6 @@ class BLEManagerEsp2: NSObject {
     func sendData(data: Data, callback: @escaping (String?) -> ()) {
         sendDataCallback = callback
         for periph in readyPeripherals {
-            print(periph)
             if let char = BLEManagerEsp2.instance.getCharForUUID(writeCBUUID, forperipheral: periph) {
                 
                 periph.writeValue(data, for: char, type: CBCharacteristicWriteType.withResponse)

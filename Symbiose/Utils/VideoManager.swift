@@ -43,25 +43,26 @@ class VideoManager: ObservableObject {
             
             case 1:
                 print("step1")
-                self.loopDelay = 3.0
-                self.anchorDelay = 1.0
+                self.loopDelay = 4.0
+                self.anchorDelay = 2.0
                 self.step = 1
                 self.player.play()
 
             case 2:
                 print("step2")
-                self.loopDelay = 14.0
-                self.anchorDelay = 2.0
+                self.loopDelay = 12.0
+                self.anchorDelay = 10.0
                 self.step = 2
             
             case 3:
                 print("step3")
-                self.loopDelay = 15.0
-                self.anchorDelay = 3.0
+                self.loopDelay = 19.0
+                self.anchorDelay = 17.0
                 self.step = 3
         
             case 4:
                 print("step4")
+                self.step = 4
                 if(self.boundaryTimeObserver != nil) {
                     self.player.removeTimeObserver(self.boundaryTimeObserver)
                 }

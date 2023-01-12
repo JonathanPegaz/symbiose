@@ -7,9 +7,9 @@ class BLEManagerMac3: NSObject {
     
     var isBLEEnabled = false
     var isScanning = false
-    let authCBUUID = CBUUID(string: "B85C752C-80CD-473C-BFE4-1756E1B50275")
-    let writeCBUUID = CBUUID(string: "35DE80EA-FFC1-4947-B1A1-594AE803CA6A")
-    let readCBUUID = CBUUID(string: "7B095DDB-D145-4783-8A5D-D5F06D548476")
+    let authCBUUID = CBUUID(string: "B210763B-B12E-40F3-9AB5-2C75385CDD09")
+    let writeCBUUID = CBUUID(string: "998AEEFC-5721-4CD6-89FF-277B9FD38D1D")
+    let readCBUUID = CBUUID(string: "2E4B84ED-A3BD-40A3-8382-ACBBAFA8BC7B")
     var centralManager: CBCentralManager?
     var connectedPeripherals = [CBPeripheral]()
     var readyPeripherals = [CBPeripheral]()

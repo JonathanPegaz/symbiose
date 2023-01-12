@@ -50,10 +50,13 @@ class SpheroSensorControl: ObservableObject{
                         self.orientation = Float(orientation.roll!)
                     }
                     
-                    if let gyro = data.gyro {
-                        if let rot = gyro.rotationRate{
-                            print(Float(abs(gyro.rotationRate.x) + abs(gyro.rotationRate.y) + abs(gyro.rotationRate.z)))
-                        }
+                    if let gyro = data.gyro?.rotationRate {
+//                        print("x : \(gyro.x!)")
+//                        print("y : \(gyro.y!)")
+//                        print("z : \(gyro.z!)")
+//                        self.gyr = Float(abs(gyro.x!) + abs(gyro.y!) + abs(gyro.z!))
+//                        self.gyr = Float(abs(gyro.x!))
+//                        print(Float(abs(gyro.x) + abs(gyro.y) + abs(gyro.z)))
                     }
  
                     if let acceleration = data.accelerometer?.filteredAcceleration {

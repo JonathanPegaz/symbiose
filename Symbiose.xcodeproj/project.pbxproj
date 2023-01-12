@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB0A4B6A296EFD0700A88AEA /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB0A4B69296EFC5700A88AEA /* video.mp4 */; };
 		AB0A4B6D296F00F800A88AEA /* BLEManagerEsp1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0A4B6B296F00F800A88AEA /* BLEManagerEsp1.swift */; };
 		AB0A4B6E296F00F800A88AEA /* BLEObservableEsp1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0A4B6C296F00F800A88AEA /* BLEObservableEsp1.swift */; };
 		AB1CFBB5296F8B9A0087CD04 /* BLEManagerEsp2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CFBB4296F8B9A0087CD04 /* BLEManagerEsp2.swift */; };
 		AB1CFBB8296F8E6D0087CD04 /* BLEObservableMac3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CFBB7296F8E6D0087CD04 /* BLEObservableMac3.swift */; };
 		AB1CFBBA296F8E740087CD04 /* BLEManagerMac3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CFBB9296F8E740087CD04 /* BLEManagerMac3.swift */; };
 		AB1CFBC0296FFEDE0087CD04 /* SpheroSensorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CFBBF296FFEDE0087CD04 /* SpheroSensorControl.swift */; };
-		AB5128DB296C15A900DA18FC /* videoold.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB5128DA296C157300DA18FC /* videoold.mp4 */; };
 		AB7FDEF7295A68AD0091A12C /* BLEUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FDEF6295A68AD0091A12C /* BLEUtils.swift */; };
 		AB7FDEF9295A6FA10091A12C /* BLEObservableMac1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FDEF8295A6FA10091A12C /* BLEObservableMac1.swift */; };
+		AB9943A0297016C500986D08 /* BLEObservableEsp2_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB99439E297016C500986D08 /* BLEObservableEsp2_3.swift */; };
+		AB9943A1297016C500986D08 /* BLEManagerEsp2_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB99439F297016C500986D08 /* BLEManagerEsp2_3.swift */; };
+		AB9943A3297056F700986D08 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB9943A2297056E900986D08 /* video.mp4 */; };
 		ABAE059829535311002CFA2C /* SymbioseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAE059729535311002CFA2C /* SymbioseApp.swift */; };
 		ABAE059A29535311002CFA2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAE059929535311002CFA2C /* ContentView.swift */; };
 		ABAE059C29535312002CFA2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABAE059B29535312002CFA2C /* Assets.xcassets */; };
@@ -93,16 +94,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AB0A4B69296EFC5700A88AEA /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		AB0A4B6B296F00F800A88AEA /* BLEManagerEsp1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManagerEsp1.swift; sourceTree = "<group>"; };
 		AB0A4B6C296F00F800A88AEA /* BLEObservableEsp1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEObservableEsp1.swift; sourceTree = "<group>"; };
 		AB1CFBB4296F8B9A0087CD04 /* BLEManagerEsp2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManagerEsp2.swift; sourceTree = "<group>"; };
 		AB1CFBB7296F8E6D0087CD04 /* BLEObservableMac3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEObservableMac3.swift; sourceTree = "<group>"; };
 		AB1CFBB9296F8E740087CD04 /* BLEManagerMac3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManagerMac3.swift; sourceTree = "<group>"; };
 		AB1CFBBF296FFEDE0087CD04 /* SpheroSensorControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpheroSensorControl.swift; sourceTree = "<group>"; };
-		AB5128DA296C157300DA18FC /* videoold.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = videoold.mp4; sourceTree = "<group>"; };
 		AB7FDEF6295A68AD0091A12C /* BLEUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEUtils.swift; sourceTree = "<group>"; };
 		AB7FDEF8295A6FA10091A12C /* BLEObservableMac1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEObservableMac1.swift; sourceTree = "<group>"; };
+		AB99439E297016C500986D08 /* BLEObservableEsp2_3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEObservableEsp2_3.swift; sourceTree = "<group>"; };
+		AB99439F297016C500986D08 /* BLEManagerEsp2_3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManagerEsp2_3.swift; sourceTree = "<group>"; };
+		AB9943A2297056E900986D08 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		ABAE059429535311002CFA2C /* Symbiose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Symbiose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABAE059729535311002CFA2C /* SymbioseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbioseApp.swift; sourceTree = "<group>"; };
 		ABAE059929535311002CFA2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -242,6 +244,15 @@
 			path = act2;
 			sourceTree = "<group>";
 		};
+		AB99439D297015D800986D08 /* esp */ = {
+			isa = PBXGroup;
+			children = (
+				AB99439F297016C500986D08 /* BLEManagerEsp2_3.swift */,
+				AB99439E297016C500986D08 /* BLEObservableEsp2_3.swift */,
+			);
+			path = esp;
+			sourceTree = "<group>";
+		};
 		ABAE058B29535311002CFA2C = {
 			isa = PBXGroup;
 			children = (
@@ -265,8 +276,7 @@
 		ABAE059629535311002CFA2C /* Symbiose */ = {
 			isa = PBXGroup;
 			children = (
-				AB0A4B69296EFC5700A88AEA /* video.mp4 */,
-				AB5128DA296C157300DA18FC /* videoold.mp4 */,
+				AB9943A2297056E900986D08 /* video.mp4 */,
 				ABAE05C129535340002CFA2C /* Utils */,
 				ABAE059729535311002CFA2C /* SymbioseApp.swift */,
 				ABAE059929535311002CFA2C /* ContentView.swift */,
@@ -475,6 +485,7 @@
 		ABDC4ACF295B53010006AF5C /* act3 */ = {
 			isa = PBXGroup;
 			children = (
+				AB99439D297015D800986D08 /* esp */,
 				AB1CFBB6296F8D020087CD04 /* app */,
 			);
 			path = act3;
@@ -585,9 +596,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABAE059F29535312002CFA2C /* Preview Assets.xcassets in Resources */,
+				AB9943A3297056F700986D08 /* video.mp4 in Resources */,
 				ABAE059C29535312002CFA2C /* Assets.xcassets in Resources */,
-				AB5128DB296C15A900DA18FC /* videoold.mp4 in Resources */,
-				AB0A4B6A296EFD0700A88AEA /* video.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,10 +626,12 @@
 				ABAE0609295353CE002CFA2C /* SpheroV1Toy.swift in Sources */,
 				ABAE061E295353CE002CFA2C /* SensorCommandResponse.swift in Sources */,
 				ABAE0623295353CE002CFA2C /* CommandV1Sequencer.swift in Sources */,
+				AB9943A0297016C500986D08 /* BLEObservableEsp2_3.swift in Sources */,
 				ABAE0605295353CE002CFA2C /* Toy.swift in Sources */,
 				ABAE0608295353CE002CFA2C /* SensorControlV1.swift in Sources */,
 				ABAE0607295353CE002CFA2C /* SPRKToy.swift in Sources */,
 				AB1CFBB5296F8B9A0087CD04 /* BLEManagerEsp2.swift in Sources */,
+				AB9943A1297016C500986D08 /* BLEManagerEsp2_3.swift in Sources */,
 				ABAE060A295353CE002CFA2C /* SpheroV1ToyCore.swift in Sources */,
 				ABAE0615295353CE002CFA2C /* ToyBox.swift in Sources */,
 				ABD381B4295E20450034835A /* CustomVideoPlayer.swift in Sources */,
@@ -838,7 +850,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -869,7 +881,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
