@@ -17,7 +17,6 @@
 		AB7FDEF9295A6FA10091A12C /* BLEObservableMac1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7FDEF8295A6FA10091A12C /* BLEObservableMac1.swift */; };
 		AB9943A0297016C500986D08 /* BLEObservableEsp2_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB99439E297016C500986D08 /* BLEObservableEsp2_3.swift */; };
 		AB9943A1297016C500986D08 /* BLEManagerEsp2_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB99439F297016C500986D08 /* BLEManagerEsp2_3.swift */; };
-		AB9943A3297056F700986D08 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AB9943A2297056E900986D08 /* video.mp4 */; };
 		ABAE059829535311002CFA2C /* SymbioseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAE059729535311002CFA2C /* SymbioseApp.swift */; };
 		ABAE059A29535311002CFA2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAE059929535311002CFA2C /* ContentView.swift */; };
 		ABAE059C29535312002CFA2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABAE059B29535312002CFA2C /* Assets.xcassets */; };
@@ -75,6 +74,7 @@
 		ABD381B4295E20450034835A /* CustomVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD381B3295E20450034835A /* CustomVideoPlayer.swift */; };
 		ABD381B9295E49C60034835A /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD381B8295E49C60034835A /* VideoManager.swift */; };
 		EDA2F51F29709FA70075D6BE /* DebugApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA2F51E29709FA70075D6BE /* DebugApp.swift */; };
+		EDD5826129715608000828C4 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EDD5826029715602000828C4 /* video.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +105,6 @@
 		AB7FDEF8295A6FA10091A12C /* BLEObservableMac1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEObservableMac1.swift; sourceTree = "<group>"; };
 		AB99439E297016C500986D08 /* BLEObservableEsp2_3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEObservableEsp2_3.swift; sourceTree = "<group>"; };
 		AB99439F297016C500986D08 /* BLEManagerEsp2_3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManagerEsp2_3.swift; sourceTree = "<group>"; };
-		AB9943A2297056E900986D08 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 		ABAE059429535311002CFA2C /* Symbiose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Symbiose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABAE059729535311002CFA2C /* SymbioseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbioseApp.swift; sourceTree = "<group>"; };
 		ABAE059929535311002CFA2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -166,6 +165,7 @@
 		ABD381B3295E20450034835A /* CustomVideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomVideoPlayer.swift; sourceTree = "<group>"; };
 		ABD381B8295E49C60034835A /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		EDA2F51E29709FA70075D6BE /* DebugApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugApp.swift; sourceTree = "<group>"; };
+		EDD5826029715602000828C4 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,7 +278,7 @@
 		ABAE059629535311002CFA2C /* Symbiose */ = {
 			isa = PBXGroup;
 			children = (
-				AB9943A2297056E900986D08 /* video.mp4 */,
+				EDD5826029715602000828C4 /* video.mp4 */,
 				ABAE05C129535340002CFA2C /* Utils */,
 				ABAE059729535311002CFA2C /* SymbioseApp.swift */,
 				ABAE059929535311002CFA2C /* ContentView.swift */,
@@ -598,8 +598,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD5826129715608000828C4 /* video.mp4 in Resources */,
 				ABAE059F29535312002CFA2C /* Preview Assets.xcassets in Resources */,
-				AB9943A3297056F700986D08 /* video.mp4 in Resources */,
 				ABAE059C29535312002CFA2C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

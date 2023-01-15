@@ -28,7 +28,6 @@ class BLEObservableMac3:ObservableObject{
     func startScann(){
         BLEManagerMac3.instance.scan { p,s in
             let periph = Periph(blePeriph: p,name: s)
-            print(periph.name)
             if periph.name == "symbioseact3"{
                 self.connectTo(p: periph)
                 self.stopScann()

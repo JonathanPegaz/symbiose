@@ -20,6 +20,7 @@ struct CustomVideoPlayer: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         controller.player = player
+        controller.modalPresentationStyle = .fullScreen
         return controller
     }
   
